@@ -11,4 +11,10 @@ int oddNumbers(int array[] , int startIndex , int endIndex) ;
 
 //HW
 
-void Hanoi(int k , int source , int destination , int helper);
+void hanoi(int n, char from, char helper, char destination) ;
+
+void merge(int arr[], int bal, int kozep, int jobb) ;
+
+void mergeSort(int arr[], int bal, int jobb) ;
+
+int binarySearch(int arr[] , int bal , int jobb , int x) ;

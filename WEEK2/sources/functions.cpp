@@ -55,13 +55,73 @@ int oddNumbers(int array[] , int startIndex , int endIndex) {
 }
 
 
+//HW
 
-void Hanoi(int k , int source , int destination , int helper) {
-    if(k == 1) {
-        cout << "('," << source << ",','," << destination << ",')" ;
-    } else {
-        Hanoi(k - 1 , source , helper , destination) ;
-        cout << "('," << source << ",','," << destination << ",')" ;
-        Hanoi(k - 1 , helper , destination , source) ;
+
+void hanoi(int n , char from , char helper , char destination) {
+    if (n == 1) {
+        cout << "1. korong: " << from << " -> " << destination << endl ;
+        return ;
     }
+    hanoi(n - 1 , from , destination , helper) ;
+    
+    cout << "Az " << n << ". korong: " << from << " -> " << destination << endl;
+    
+    hanoi(n - 1 , helper , from , destination) ;
+}
+
+void merge(int arr[] , int bal , int kozep , int jobb) {
+    int n1 = kozep - bal + 1 ;
+    int n2 = jobb - kozep ;
+    int L[n1] , R[n2] ;
+
+    for (int i = 0 ; i < n1 ; i++) {
+        L[i] = arr[bal + i] ;
+    }
+    for (int j = 0 ; j < n2 ; j++) {
+        R[j] = arr[kozep + 1 + j] ;
+    }
+
+    int i = 0 , j = 0 , k = bal ;
+    while (i < n1 && j < n2) {
+        if (L[i] <= R[j]) {
+            arr[k++] = L[i++] ;
+        } else {
+            arr[k++] = R[j++] ;
+        } 
+    }
+    while (i < n1) 
+    {   
+        arr[k++] = L[i++] ;
+    }
+    while (j < n2) { 
+        arr[k++] = R[j++] ;
+    }
+}
+
+void mergeSort(int arr[] , int bal , int jobb) {
+    if (bal < jobb) {
+        int kozep = bal + (jobb - bal) / 2 ;
+        mergeSort(arr , bal , kozep) ;
+        mergeSort(arr , kozep + 1 , jobb) ;
+        merge(arr , bal , kozep , jobb) ;
+    }
+}
+
+
+int binarySearch(int arr[] , int bal , int jobb , int x) {
+    if (jobb >= bal) {
+        int kozep = bal + (jobb - bal) / 2 ;
+
+        if (arr[kozep] == x) 
+        {
+            return kozep ;
+        }
+
+        if (arr[kozep] > x) {
+            return binarySearch(arr , bal , kozep - 1 , x) ;
+        }
+        return binarySearch(arr , kozep + 1 , jobb , x) ;
+    }
+    return -1 ;
 }
