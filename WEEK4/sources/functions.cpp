@@ -6,7 +6,6 @@ using namespace std;
 const string aeiou = "aeiou" ;
 
 void firstExercise(vector<int> arr , int n) {
-    //for(int i = 0 ; i < )
     if(arr.size() == n) {
         printSolutionForFirst(arr) ;
         return ;
@@ -72,7 +71,7 @@ void thirdExercise(int sum , vector<int> arr) {
         return ;
     }
 
-    for(int i = 0 ; i < 9 ; i++) {
+    for(int i = 0 ; i <= 9 ; i++) {
         if(arr.size() == 0 && i == 0) {
             continue;
         }
