@@ -14,7 +14,7 @@ int main() {
     //cout << maxWithValue(array , 0 , n - 1) << endl ;
     //cout << sumOfArray(array , 0 , n - 1) << endl ;
     //cout << oddNumbers(array , 0 , n - 1) << endl ;
-    Hanoi(5 , 5 , 0 , 0) ;
+    hanoi(5 , 'F' , 'H' , 'D') ;
 
     return 0 ;
 }

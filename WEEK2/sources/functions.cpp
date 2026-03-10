@@ -65,7 +65,7 @@ void hanoi(int n , char from , char helper , char destination) {
     }
     hanoi(n - 1 , from , destination , helper) ;
     
-    cout << "Az " << n << ". korong: " << from << " -> " << destination << endl;
+    cout << "Az " << n << ". korong: " << from << " -> " << destination << endl ;
     
     hanoi(n - 1 , helper , from , destination) ;
 }
