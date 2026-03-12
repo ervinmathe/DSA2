@@ -102,3 +102,57 @@ void printSolutionforThird(vector<int> arr) {
     }
     cout << endl;
 }
+
+const vector<string> colors = {"Feher" , "Fekete" , "Piros" , "Zold" , "Sarga" , "Kek"} ; 
+
+void HW1(vector<string> arr) {
+    if(arr.size() == 3) {
+        printSolutionForHW1(arr) ;
+        return ;
+    }
+
+
+
+    for(string c : colors) {
+        arr.push_back(c) ;
+        if(validHW1(arr)) {
+            HW1(arr) ;
+        }
+        arr.pop_back() ;
+    }
+}
+
+void printSolutionForHW1(vector<string> arr) {
+    for(string c : arr) {
+        cout << c << ',' ;
+    }
+    cout << endl ;
+}
+
+bool validHW1(vector<string> arr) {
+    if(arr.size() == 1) {
+        return true ;
+    } else {
+        if(arr[1] == "Feher" || arr[1] == "Fekete") {
+            for(int i = 0 ; i < arr.size() ; i++) {
+                if(numberOfOccurences(arr , arr[i]) > 1) {
+                    return false;
+                }
+            }
+            return true ;
+        }
+    }
+
+    return false ;
+}
+
+int numberOfOccurences(vector<string> arr , string color) {
+    int count = 0 ;
+    for(string c : arr) {
+        if(c == color) {
+            count++ ;
+        }
+    }
+
+    return count ;
+}

@@ -23,5 +23,8 @@ int main() {
 
     
     // thirdExercise(sum , arr) ;
+
+    vector<string> arr = {} ;
+    HW1(arr) ;
     return 0;
 }
