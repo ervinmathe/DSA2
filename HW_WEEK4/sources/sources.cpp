@@ -22,11 +22,7 @@ void genZaszlok()
     cout << "Osszes: " << db << "\n\n" ;
 }
 
-// ---------------------------------------------------------------------------
-// 2.2 Osszegre bontas
-// n-t felbontja p darab pozitiv egesz szam osszegeként (sorrend szamit).
-// ---------------------------------------------------------------------------
-static void bontasHelper(int marad, int darab, vector<int>& aktualis)
+void bontasHelper(int marad, int darab, vector<int>& aktualis)
 {
     if (darab == 0)
     {
@@ -57,7 +53,7 @@ void osszegBontas(int n, int p)
     cout << "\n" ;
 }
 
-static void delegacioHelper(int start, int n, int k, int q, vector<int>& aktualis, int nokSzama, int p)
+void delegacioHelper(int start, int n, int k, int q, vector<int>& aktualis, int nokSzama, int p)
 {
     if ((int)aktualis.size() == k)
     {
