@@ -12,9 +12,9 @@ void genZaszlok()
 
     cout << "2.1 Zaszlok:\n" ;
     int db = 0 ;
-    for (const string& fel : szinek)
-        for (const string& koz : kozep)
-            for (const string& al : szinek)
+    for (const string fel : szinek)
+        for (const string koz : kozep)
+            for (const string al : szinek)
             {
                 cout << fel << " - " << koz << " - " << al << "\n" ;
                 db++ ;
@@ -28,7 +28,7 @@ void bontasHelper(int marad, int darab, vector<int>& aktualis)
     {
         if (marad == 0)
         {
-            for (int i = 0 ; i < (int)aktualis.size() ; i++)
+            for (int i = 0 ; i < aktualis.size() ; i++)
             {
                 if (i) cout << " + " ;
                 cout << aktualis[i] ;
@@ -55,11 +55,11 @@ void osszegBontas(int n, int p)
 
 void delegacioHelper(int start, int n, int k, int q, vector<int>& aktualis, int nokSzama, int p)
 {
-    if ((int)aktualis.size() == k)
+    if (aktualis.size() == k)
     {
         if (nokSzama == q)
         {
-            for (int i = 0 ; i < (int)aktualis.size() ; i++)
+            for (int i = 0 ; i < aktualis.size() ; i++)
             {
                 if (i) cout << ", " ;
                 cout << aktualis[i] ;
@@ -68,7 +68,7 @@ void delegacioHelper(int start, int n, int k, int q, vector<int>& aktualis, int 
         }
         return ;
     }
-    int marad = k - (int)aktualis.size() ;
+    int marad = k - aktualis.size() ;
     for (int i = start ; i <= n - marad + 1 ; i++)
     {
         bool no = (i <= p) ;

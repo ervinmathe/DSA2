@@ -5,9 +5,9 @@ using namespace std;
 
 int main()
 {
-    //genZaszlok() ;
+    genZaszlok() ;
 
-    osszegBontas(7, 3) ;
+    ///osszegBontas(7, 3) ;
 
     //delegacio(6, 3, 3, 2) ;
 
