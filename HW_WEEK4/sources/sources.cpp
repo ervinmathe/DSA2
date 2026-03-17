@@ -89,10 +89,10 @@ void delegacio(int n, int p, int k, int q)
 
 void egyenlet()
 {
-    cout << "2.4 Egyenlet (3x + y + 4xz = 100, x,y,z >= 1):\n" ;
+    cout << "2.4 Egyenlet (3x + y + 4xz = 100):\n" ;
     int db = 0 ;
-    for (int x = 1 ; x <= 33 ; x++)
-        for (int z = 1 ; z <= 100 ; z++)
+    for (int x = 0 ; x <= 33 ; x++)
+        for (int z = 0 ; z <= 100 ; z++)
         {
             int y = 100 - 3 * x - 4 * x * z ;
             if (y >= 1)

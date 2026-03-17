@@ -5,13 +5,13 @@ using namespace std;
 
 int main()
 {
-    genZaszlok() ;
+    //genZaszlok() ;
 
     ///osszegBontas(7, 3) ;
 
     //delegacio(6, 3, 3, 2) ;
 
-    //egyenlet() ;
+    egyenlet() ;
 
     return 0 ;
 }
