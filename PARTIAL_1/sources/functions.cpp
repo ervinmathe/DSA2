@@ -32,8 +32,15 @@ int firstExercises() {
     }
 
     return count;
-
 }
+
+
+
+void firstExercisesRecursive() {
+    
+}
+
+
 
 
 
@@ -80,7 +87,13 @@ void secondExercisesBackTrack(int remaining , vector<pair<int,int>> &moneyNotes 
     for(int i = startIndex ; i < moneyNotes.size() ; i++) {
         int noteValue = moneyNotes[i].first ;
         int noteCount = moneyNotes[i].second ;
-        
+        if(noteCount > 0 && validSecond(remaining , noteValue)) {
+            current.push_back(noteValue) ;
+            moneyNotes[i].second-- ;
+            secondExercisesBackTrack(remaining - noteValue , moneyNotes , i , current) ;
+            moneyNotes[i].second++ ;
+            current.pop_back() ;
+        }
     }
 }
 

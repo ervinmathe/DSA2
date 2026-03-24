@@ -6,10 +6,14 @@ using namespace std;
 
 int main() {
 
-    ///First exercises
+    ///First Exercises
     ///cout << firstExercises() ;
+
+
+
+    //Second Exercises
     int n = 786 ;
-    vector<pair<int,int>> note = {
+    vector<pair<int,int>> notes = {
         pair<int , int>(500 , 1),
         pair<int , int>(200 , 2),
         pair<int , int>(100 , 1),
@@ -20,6 +24,6 @@ int main() {
         pair<int , int>(1 , 10)
 
     } ;
-    secondExercises(n , note) ;
+    secondExercises(n , notes) ;
     return 0 ;
 }
