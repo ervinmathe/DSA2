@@ -36,11 +36,8 @@ int firstExercises() {
 }
 
 
-vector<vector<int>> solutions ;
-vector<int> sol ;
-int solutionCount = 0 ;
 
-void secondExercises(int &n , vector<pair<int,int>> &moneyNotes) {
+/*void secondExercises(int &n , vector<pair<int,int>> &moneyNotes) {
 
     if(n == 0) {
         solutions.push_back(sol) ;
@@ -50,8 +47,12 @@ void secondExercises(int &n , vector<pair<int,int>> &moneyNotes) {
     for(int i = 0 ; i < moneyNotes.size(); i++) {
         if(moneyNotes[i].second == 0) {
             continue;
-        } else if(validSecond(n , moneyNotes[i].first) == true && find(solutions.begin() , solutions.end() , sol)) {
+        } else if(validSecond(n , moneyNotes[i].first) == true) {
             sol.push_back(moneyNotes[i].first) ;
+            if(find(solutions.begin() , solutions.end() , sol) != solutions.end()){
+                sol.pop_back() ;
+                continue ;
+            }
             moneyNotes[i].second-- ;
             n -= moneyNotes[i].first ;
             secondExercises(n , moneyNotes) ;
@@ -61,8 +62,27 @@ void secondExercises(int &n , vector<pair<int,int>> &moneyNotes) {
             solutionCount++ ;
         } else continue;
     }
+}*/
+
+
+void secondExercises(int &n , vector<pair<int,int>> &moneyNotes) {
+    vector<int> current ;
+    secondExercisesBackTrack(n , moneyNotes , 0 , current) ;
 }
 
+
+void secondExercisesBackTrack(int remaining , vector<pair<int,int>> &moneyNotes , int startIndex , vector<int> &current) {
+    if(remaining == 0) {
+        printSecond(current) ;
+        return ;
+    } 
+
+    for(int i = startIndex ; i < moneyNotes.size() ; i++) {
+        int noteValue = moneyNotes[i].first ;
+        int noteCount = moneyNotes[i].second ;
+        
+    }
+}
 
 void printSecond(vector<int> solution) {
     for(int note : solution) {
