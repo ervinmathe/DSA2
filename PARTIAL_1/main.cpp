@@ -12,7 +12,7 @@ int main() {
 
 
     //Second Exercises
-    int n = 786 ;
+    /*int n = 786 ;
     vector<pair<int,int>> notes = {
         pair<int , int>(500 , 1),
         pair<int , int>(200 , 2),
@@ -24,6 +24,6 @@ int main() {
         pair<int , int>(1 , 10)
 
     } ;
-    secondExercises(n , notes) ;
+    secondExercises(n , notes) ;*/
     return 0 ;
 }

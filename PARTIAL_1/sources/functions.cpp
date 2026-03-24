@@ -1,5 +1,7 @@
 #include "../headers/functions.h"
 
+
+//Solution for the first exercises of the partial
 int firstExercises() {
     int n , m;
     vector<int> kids , candies ;
@@ -20,64 +22,39 @@ int firstExercises() {
         candies.push_back(temp) ;
     }
 
-    int count = 0 ;
-    for(int i = 0 ; i < n ; i++) {
-        for(int j = 0 ; j < m ; j++) {
-            if(kids[i] <= candies[j]) {
-                count++ ;
-                candies[j] = 0 ;
-                break ;
-            }
-        }
-    }
+    int count = countMatches(kids , candies , 0 , n , m) ;
 
     return count;
 }
 
+//helper function for the countMatches function
+int findCandyIndex(vector<int> &candies , int j , int m , int need) {
+    if(j == m) return -1 ;
+    if(need <= candies[j]) return j ;
+    return findCandyIndex(candies , j + 1 , m , need) ;
+}
 
+//instead of a double 'for' , I search for the  matching candies for the kids recursively.
+///Although I do think a double for would suit the exercises better, because of the criteria of the partial
+//I solved it recursively
+int countMatches(vector<int> &kids , vector<int> &candies , int i , int n , int m) {
+    if(i == n) return 0 ;
 
-void firstExercisesRecursive() {
-    
+    int idx = findCandyIndex(candies , 0 , m , kids[i]) ;
+    if(idx == -1) return countMatches(kids , candies , i + 1 , n , m) ;
+
+    candies[idx] = 0 ;
+    return 1 + countMatches(kids , candies , i + 1 , n , m) ;
 }
 
 
-
-
-
-/*void secondExercises(int &n , vector<pair<int,int>> &moneyNotes) {
-
-    if(n == 0) {
-        solutions.push_back(sol) ;
-        printSecond(solutions[solutionCount]) ;
-        return ;
-    }
-    for(int i = 0 ; i < moneyNotes.size(); i++) {
-        if(moneyNotes[i].second == 0) {
-            continue;
-        } else if(validSecond(n , moneyNotes[i].first) == true) {
-            sol.push_back(moneyNotes[i].first) ;
-            if(find(solutions.begin() , solutions.end() , sol) != solutions.end()){
-                sol.pop_back() ;
-                continue ;
-            }
-            moneyNotes[i].second-- ;
-            n -= moneyNotes[i].first ;
-            secondExercises(n , moneyNotes) ;
-            n += moneyNotes[i].first ;
-            moneyNotes[i].second++ ;
-            sol.pop_back() ;
-            solutionCount++ ;
-        } else continue;
-    }
-}*/
-
-
+/// Solution for the second exercises of the partial
 void secondExercises(int &n , vector<pair<int,int>> &moneyNotes) {
     vector<int> current ;
     secondExercisesBackTrack(n , moneyNotes , 0 , current) ;
 }
 
-
+//the backtracking algorithm
 void secondExercisesBackTrack(int remaining , vector<pair<int,int>> &moneyNotes , int startIndex , vector<int> &current) {
     if(remaining == 0) {
         printSecond(current) ;
@@ -97,6 +74,7 @@ void secondExercisesBackTrack(int remaining , vector<pair<int,int>> &moneyNotes 
     }
 }
 
+//a print function that prints a solution
 void printSecond(vector<int> solution) {
     for(int note : solution) {
         cout << note << " " ;
@@ -105,6 +83,7 @@ void printSecond(vector<int> solution) {
     cout << endl << endl ;
 }
 
+//a validating function for the backtracking algorithm that checks if the input sum is still above 0
 bool validSecond(int n , int note) {
     if(n - note < 0) {
         return false ;
