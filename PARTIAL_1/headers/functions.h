@@ -3,7 +3,15 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <fstream>
+
 
 using namespace std ;
 
-int firstExercises(int n , vector<int> kids , int m  , vector<int> candies); ;
+int firstExercises(); 
+
+void secondExercises() ;
+
+void printSecond();
+
+bool validSecond() ;

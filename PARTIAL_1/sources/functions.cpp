@@ -1,6 +1,25 @@
 #include "../headers/functions.h"
 
-int firstExercises(int n , vector<int> kids , int m  , vector<int> candies) {
+int firstExercises() {
+    int n , m;
+    vector<int> kids , candies ;
+    ifstream file ;
+    file.open("input1.txt") ;
+
+    file >> n ;
+    for(int i = 0 ; i < n ; i++) {
+        int temp ;
+        file >> temp ;
+        kids.push_back(temp) ;
+    }
+
+    file >> m ;
+    for(int i = 0 ; i < n ; i++) {
+        int temp ;
+        file >> temp ;
+        candies.push_back(temp) ;
+    }
+
     int count = 0 ;
     for(int i = 0 ; i < n ; i++) {
         for(int j = 0 ; j < m ; j++) {
@@ -14,4 +33,19 @@ int firstExercises(int n , vector<int> kids , int m  , vector<int> candies) {
 
     return count;
 
+}
+
+
+
+
+void secondExercises() {
+
+}
+
+void printSecond() {
+
+}
+
+bool validSecond() {
+    return true ;
 }
