@@ -6,6 +6,12 @@ using namespace std;
 
 int main() {
 
-    cout << firstExercises() ;
+    ///First exercises
+    ///cout << firstExercises() ;
+    vector<pair<int,int>> note = {
+        pair<int , int>(500 , 1),
+
+    }
+    secondExercises(786 , )
     return 0 ;
 }

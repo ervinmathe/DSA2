@@ -10,8 +10,8 @@ using namespace std ;
 
 int firstExercises(); 
 
-void secondExercises() ;
+void secondExercises(int &n , vector<pair<int,int>> &moneyNotes) ;
 
-void printSecond();
+void printSecond(vector<int> solution);
 
-bool validSecond() ;
+bool validSecond(int n , int note) ;
