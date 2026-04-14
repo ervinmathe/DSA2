@@ -21,7 +21,7 @@ int main() {
         pair<int , int>(20 , 2),
         pair<int , int>(10 , 5),
         pair<int , int>(5 , 2),
-        pair<int , int>(1 , 10)
+        pair<int , int>(1 , 10) 
 
     } ;
     secondExercises(n , notes) ;*/
