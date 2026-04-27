@@ -33,7 +33,7 @@ void mmCaller(vector<vector<int>> G , int u) {
 
 
 
-void wordFormation(vector<vector<char>> board , int x , int y , string jelenlegiszo , ) {
+void wordFormation(vector<vector<char>> board , int x , int y , string jelenlegiszo ) {
     
 }
 
