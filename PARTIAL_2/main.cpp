@@ -1,12 +1,11 @@
 #include "./headers/functions.h"
+#include <algorithm>
 
 using namespace std;
 
-
-vector<int> letezoUtvonal = {} ;
 int main() {
 
-    bool letezik = false ; 
+    /*bool letezik = false ; 
     vector<pair<int,int>> utvonalak ;
 
     ifstream f ;
@@ -21,14 +20,11 @@ int main() {
         utvonalak.push_back(temp) ;
     }
 
-    for(auto e : utvonalak) {
-        cout << e.first << ' ' << e.second << endl ;
-    }
 
-    utvonalTerv(utvonalak , letezik) ;
+    vector<int> ut = utvonalTerv(utvonalak , letezik) ;
 
     if(letezik) {
-        for(auto e : letezoUtvonal) {
+        for(auto e : ut) {
             cout << e << ' ' ;
         }
     } else {
@@ -36,6 +32,37 @@ int main() {
     }
 
     cout << endl;
+    f.close() ;
+*/
+
+    ifstream file ;
+    file.open("input2.txt") ;
+    int n , k , q ;
+    f >> n >> k >> q ;
+
+    vector<vector<int>> fesztival ;
+
+    for(int i = 0 ; i < n ; i++) {
+        int temp ;
+        while(f >> temp) {
+            fesztival[i].push_back(temp) ;
+        }
+    }
+
+    vector<pair<int , int> tilos ;
+
+    pair<int , int > temp ;
+    while(file >> temp.first >> temp.second) {
+        tilos.push_back(temp) ;
+    }
+
+
+    int osszertek = calculateMax(n , k , q , fesztival , tilos) ;
+
+    cout << osszertek ;
+
     return 0 ; 
 }
+
+
 
