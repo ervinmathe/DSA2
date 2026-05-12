@@ -25,14 +25,14 @@ int main() {
         cout << e.first << ' ' << e.second << endl ;
     }
 
-    utvonalTerv(utvonalak , &letezik) ;
+    utvonalTerv(utvonalak , letezik) ;
 
     if(letezik) {
         for(auto e : letezoUtvonal) {
             cout << e << ' ' ;
         }
     } else {
-        
+        cout << "Nem letezik ilyen ut" ;
     }
 
     cout << endl;
