@@ -48,37 +48,42 @@ vector<int> utvonalTerv(vector<pair<int,int>> utvonalak , bool &letezik) {
     return letezoUtvonal ; 
 }
 
-int calculateMaxBevetel(int N, int K, int Q, vector<vector<int>>& bevetel, vector<pair<int, int>>& tiltasok) {
-    vector<vector<int>> szomszedsagi(N + 1);
-    for (auto t : tiltasok) {
-        szomszedsagi[t.first].push_back(t.second);
-        szomszedsagi[t.second].push_back(t.first);
-    }
-    int maxBevetel = 0;
-    vector<int> hozzaRendeles(N + 1, -1);
-    backtrackFestival(1, N, K, bevetel, szomszedsagi, hozzaRendeles, 0, maxBevetel);
-    return maxBevetel;
-}
-
-void backtrackFestival(int jelenlegi , int N , int K , vector<vector<int>>& bevetel , vector<vector<int>>& szomszedsagi , vector<int> hozzaRendeles, int jelenlegiBevetel , int& maxBevetel) {
+void backtrackFestival(int jelenlegi , int N , int K , vector<vector<int>>& bevetel , vector<vector<int>>& szomszedsagi , vector<int>& hozzaRendeles, int jelenlegiBevetel , int& maxBevetel) {
     if(jelenlegi == N + 1) {
         if(jelenlegiBevetel > maxBevetel) {
-            baxBevetel = jelenlegiBevetel ;
+            maxBevetel = jelenlegiBevetel ;
         }
         return ;
     }
 
-    for(int attrakcio = 0 attrakcio < K ; attrakcio++) {
+    for(int attrakcio = 0 ; attrakcio < K ; attrakcio++) {
         bool jo = true ; 
         for(int szomszed : szomszedsagi[jelenlegi]) {
             if(hozzaRendeles[szomszed] == attrakcio) {
                 jo = false ; 
                 break ;
             }
+        }
 
-            if(jo) { 
-                
-            }
+        if(jo) { 
+            hozzaRendeles[jelenlegi] = attrakcio ;
+            backtrackFestival(jelenlegi + 1 , N , K , bevetel , szomszedsagi , hozzaRendeles , jelenlegiBevetel + bevetel[jelenlegi - 1][attrakcio] , maxBevetel)  ; 
+            hozzaRendeles[jelenlegi] = -1 ; 
         }
     }
+}
+
+int calculateMaxBevetel(int N , int K , int Q , vector<vector<int>>& bevetel , vector<pair<int , int>>& tiltasok) {
+    vector<vector<int>> szomszedsagi(N + 1) ;
+    for (auto t : tiltasok) {
+        szomszedsagi[t.first].push_back(t.second) ;
+        szomszedsagi[t.second].push_back(t.first) ;
+    }
+    
+    int maxBevetel = 0 ;
+    vector<int> hozzaRendeles(N + 1 , -1) ;
+
+    backtrackFestival(1 , N , K , bevetel , szomszedsagi , hozzaRendeles , 0 , maxBevetel) ;
+    
+    return maxBevetel ;
 }

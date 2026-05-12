@@ -1,11 +1,10 @@
 #include "./headers/functions.h"
-#include <algorithm>
 
 using namespace std;
 
 int main() {
 
-    /*bool letezik = false ; 
+    bool letezik = false ; 
     vector<pair<int,int>> utvonalak ;
 
     ifstream f ;
@@ -33,34 +32,31 @@ int main() {
 
     cout << endl;
     f.close() ;
-*/
+    
 
-    ifstream file ;
+    /*ifstream file ;
     file.open("input2.txt") ;
     int n , k , q ;
-    f >> n >> k >> q ;
+    file >> n >> k >> q ;
 
-    vector<vector<int>> fesztival ;
-
+    vector<vector<int>> fesztival(n) ;
     for(int i = 0 ; i < n ; i++) {
-        int temp ;
-        while(f >> temp) {
+        for(int j = 0 ; j < k ; j++) {
+            int temp ;
+            file >> temp ;
             fesztival[i].push_back(temp) ;
         }
     }
 
-    vector<pair<int , int> tilos ;
-
-    pair<int , int > temp ;
+    vector<pair<int,int>> tilos ;
+    pair<int,int> temp ;
     while(file >> temp.first >> temp.second) {
         tilos.push_back(temp) ;
     }
 
-
-    int osszertek = calculateMax(n , k , q , fesztival , tilos) ;
-
-    cout << osszertek ;
-
+    int osszertek = calculateMaxBevetel(n , k , q , fesztival , tilos) ;
+    cout << "A legnagyobb osszertek: " << osszertek << '\n' ;
+*/
     return 0 ; 
 }
 
